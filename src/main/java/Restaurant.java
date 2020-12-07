@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +50,7 @@ public class Restaurant {
 
         menu.remove(itemToBeRemoved);
     }
+
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"
                 +"Location:"+ location + "\n"
@@ -64,4 +64,11 @@ public class Restaurant {
         return name;
     }
 
+    public Integer calculateOrderFromMenu(List<String> itemlist) {
+        int total = 0;
+        for (String i: itemlist){
+            total = total + findItemByName(i).getPrice();
+        }
+        return total;
+    }
 }
